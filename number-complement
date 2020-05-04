@@ -1,0 +1,8 @@
+/**
+ * @param {number} num
+ * @return {number}
+ */
+
+const findComplement = function(N) {
+    return parseInt([...N.toString(2)].map(a => a === '0' ? '1' : '0').join(''), 2);
+  };
