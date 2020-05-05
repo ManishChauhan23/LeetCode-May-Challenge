@@ -8,14 +8,15 @@ The letters in J are guaranteed distinct, and all characters in J and S are lett
 var numJewelsInStones = function(J, S) {
     let map = {};
     let sum = 0;
+    let i;
 
-    for(let i = 0; i < S.length; i++) {
+    for(i = 0; i < S.length; i++) {
       if(!map.hasOwnProperty(S.charAt(i))) map[S.charAt(i)] = 1;
       else map[S.charAt(i)]++;
     }
 
-    for(let k = 0; k < J.length; k++) {
-        if(map[J.charAt(k)]) sum += map[J.charAt(k)];
+    for( i= 0; i < J.length; i++) {
+        if(map[J.charAt(i)]) sum += map[J.charAt(i)];
     }
     
     return sum;
