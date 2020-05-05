@@ -1,0 +1,29 @@
+/**
+ * @param {string} s
+ * @return {number}
+ */
+ 
+const firstUniqChar = function(s) {
+    if(s === '') return -1;
+    const map = {};
+    let k;
+    for(k = 0; k < s.length; k++) {
+        if(!Object.prototype.hasOwnProperty.call(map,s.charAt(k))) {
+            map[s.charAt(k)] = [k]
+        } else {
+            map[s.charAt(k)].push(k)
+        }
+    }
+
+    let key;
+    let flag = true;
+    for(key in map) {
+        if(map[key].length === 1)  {
+            return map[key];
+        } else {
+            flag = false;
+        }
+    }
+    
+    if(flag === false) return -1;
+};
