@@ -11,11 +11,13 @@ var majorityElement = function(nums) {
         if(!Object.prototype.hasOwnProperty.call(map, nums[i])) map[nums[i]] = 1;
         else map[nums[i]]++;
     }
-
-    let key;
-    for(key in map) {
-        if(map[key] > (len/2)) {
-            return key;
-        }
+    
+    let keys = Object.keys(map);
+    
+    for(i = 0; i < len; i++) {
+        if(map[keys[i]] > (len / 2)) {
+            return keys[i];
+        } 
     }
+    
 };
