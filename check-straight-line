@@ -1,0 +1,29 @@
+var checkStraightLine = function(m) {
+    let len = m.length;
+    let k, x, y;
+    let ans;
+  
+    function gcd(a,  b){
+      return !b ? a : gcd(b, a%b);
+   }
+  
+     let a = m[1][0] - m[0][0];
+     let b = m[1][1] - m[0][1];
+     let z = gcd(a,b);
+     a /= z;
+     b /= z;
+
+     for(k = 1; k< len; k++){
+          x = m[k][0]-m[k-1][0];
+          y = m[k][1]-m[k-1][1];
+          z = gcd(x, y);
+          x /= z;
+          y /= z;
+          ans = (x == a) && (y == b);
+          if(!ans) {
+              return false;
+          } 
+   }
+    return ans;
+ }
+  
