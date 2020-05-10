@@ -1,0 +1,35 @@
+/**
+ * @param {number} N
+ * @param {number[][]} trust
+ * @return {number}
+ */
+
+var findJudge = function(N, trust) {
+      if(trust.length === 0) return 1;
+      
+      let map = {};
+      let k;
+      
+      for(k = 0; k < trust.length; k++) {
+          if(map[trust[k][0]]) map[trust[k][0]]--
+          else map[trust[k][0]] = -1
+  
+          if(map[trust[k][1]]) map[trust[k][1]]++
+          else map[trust[k][1]] = 1
+      }
+      
+      let key;
+      let ans;
+      let c = 0;
+      
+      for(key in map) {
+          if(map[key] === N-1) {
+              c++;
+              ans = key;
+              if(c >= 2) return -1;
+          }
+      }
+      if(c === 1) return ans;
+      
+      return -1;
+    };
