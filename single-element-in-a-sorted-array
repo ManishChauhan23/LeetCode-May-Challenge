@@ -1,0 +1,14 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+ 
+ //Note: Your solution should run in O(log n) time and O(1) space.
+ 
+const singleNonDuplicate = function (nums) {
+  let i;
+  let j = nums.length;
+  for (i = 0; i < j; i += 2) {
+    if(nums[i] != nums[i+1]) return nums[i]
+  }
+};
