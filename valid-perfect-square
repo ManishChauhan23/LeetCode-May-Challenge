@@ -1,0 +1,16 @@
+/**
+ * @param {number} num
+ * @return {boolean}
+ */
+ 
+ //Note: Do not use any built-in library function such as sqrt.
+ 
+var isPerfectSquare = function(n) {
+  let i;
+    for ( i = 1; i * i <= n; i++) { 
+            if ((n % i == 0) && (n / i == i)) { 
+                return true; 
+            } 
+        } 
+        return false; 
+};
