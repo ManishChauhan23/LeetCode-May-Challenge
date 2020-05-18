@@ -1,0 +1,37 @@
+/**
+ * @param {string} s
+ * @param {string} p
+ * @return {number[]}
+ */
+
+//Helper Function
+function deepEqual(m, n) {
+  let key, c = 0;
+  for(key in m) {
+    if(m[key] === n[key]) c++;
+    else return false;
+  }
+  if(c === Object.keys(m).length) return true
+  else return false;
+};
+
+var findAnagrams = function (s2, s1) {
+  let s1Length = s1.length, s2Length = s2.length, map = {}, i, k, map2, index = [];
+
+  for (i = 0; i < s1Length; i++) {
+    if (map[s1[i]]) ++map[s1[i]];
+    else map[s1[i]] = 1;
+  };
+
+  for (i = 0; i <= s2Length - s1Length; i++) {
+    map2 = {}
+    for (k = i; k < i + s1Length; k++) {
+      if (map2[s2[k]]) ++map2[s2[k]];
+      else map2[s2[k]] = 1;
+    }
+    
+    if(deepEqual(map, map2)) index.push(i)
+  }
+
+  return index;
+};
