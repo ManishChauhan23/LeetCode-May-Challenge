@@ -1,0 +1,15 @@
+var findMaxLength = function (nums) {
+    const map = {};
+    let maxCount = 0, count = 0, k;
+    map[0] = -1
+    for (k = 0; k < nums.length; k++) {
+        count = nums[k] === 0 ? count - 1 : count + 1;
+        if (map.hasOwnProperty(count)) {
+            maxCount = Math.max(maxCount, k - map[count]);
+        } else {
+            map[count] = k;
+        }
+        console.log(map)
+    }
+    return maxCount
+};
